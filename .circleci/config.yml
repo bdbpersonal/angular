@@ -6,6 +6,6 @@ jobs:
         docker:
             - image: circleci/node
         steps:
-            - chockout
+            - checkout
             - run: npm install --save
             - run: npm test
