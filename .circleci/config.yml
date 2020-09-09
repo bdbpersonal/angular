@@ -4,7 +4,7 @@ orbs:
 jobs:
     build:
         docker:
-            - image: circleci/node
+            - image: circleci/node: 10-browsers
         steps:
             - checkout
             - run: npm install --save
