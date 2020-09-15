@@ -23,7 +23,7 @@ jobs:
             #     paths:
             #         - node_modules
             - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-            - run : npm i @angular/cli
+            - run : npm i -g @angular/cli
             - run: ng build
             # - save_cache:
             #     key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
