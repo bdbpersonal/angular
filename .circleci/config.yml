@@ -13,20 +13,20 @@ jobs:
             #     command: |
             #     echo 'export ACCESS_KEY = AKIA2Z45VZLJLW2VR56U' >> $BASH_ENV
             #     echo 'export SECRET_ACESS_KEY = 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' >> $BASH_ENV
-            - restore_cache:
-                - v1-dependencies-{{ checksum "package.json" }}
-                - v1-dependencies-
+            # - restore_cache:
+            #     - v1-dependencies-{{ checksum "package.json" }}
+            #     - v1-dependencies-
             - run: npm install --save
-            - save_cache:
-                key: v1-dependencies-{{ checksum "package.json" }}
-                paths:
-                    - node_modules
+            # - save_cache:
+            #     key: v1-dependencies-{{ checksum "package.json" }}
+            #     paths:
+            #         - node_modules
             - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
             - run: if [ "${CIRCLE_BRANCH}" == "staging" ]; then npm run build-qa elif [ "${CIRCLE_BRANCH}" == "master" ]; then npm run build-prod else npm run build-dev fi
-            - save_cache:
-                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-                paths:
-                    - dist
+            # - save_cache:
+            #     key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+            #     paths:
+            #         - dist
 
 # The deploy job
 deploy:
