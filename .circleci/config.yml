@@ -23,7 +23,7 @@ jobs:
             #     paths:
             #         - node_modules
             - run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-            - run: if [ "${CIRCLE_BRANCH}" == "staging" ]; then npm run build-qa elif [ "${CIRCLE_BRANCH}" == "master" ]; then npm run build-prod else npm run build-dev fi
+            - run: npm run build-prod
             # - save_cache:
             #     key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
             #     paths:
