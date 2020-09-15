@@ -8,11 +8,11 @@ jobs:
         steps:
             - checkout
             - run : echo ${CIRCLE_BRANCH}
-            - run :
-                name : "Stup custom environment variables"
-                command: |
-                echo 'export ACCESS_KEY = AKIA2Z45VZLJLW2VR56U' >> $BASH_ENV
-                echo 'export SECRET_ACESS_KEY = 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' >> $BASH_ENV
+            # - run :
+            #     name : "Stup custom environment variables"
+            #     command: |
+            #     echo 'export ACCESS_KEY = AKIA2Z45VZLJLW2VR56U' >> $BASH_ENV
+            #     echo 'export SECRET_ACESS_KEY = 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' >> $BASH_ENV
             - restore_cache:
                 - v1-dependencies-{{ checksum "package.json" }}
                 - v1-dependencies-
