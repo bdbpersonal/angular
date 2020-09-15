@@ -29,6 +29,9 @@ jobs:
             #     key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
             #     paths:
             #         - dist
+            - run : sudo apt-get -y -qq install awscli
+            - run : aws configure set aws_acess_key_id AKIA2Z45VZLJLW2VR56U | aws configure set aws_secret_acess_key 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 | aws configure set default.region sa-east-1
+            - run : aws --region sa-east-1 s3 sync dist s3://angularbdb/ --delete
 
 # The deploy job
 deploy:
