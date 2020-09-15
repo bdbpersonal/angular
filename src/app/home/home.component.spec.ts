@@ -2,11 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 
+import { RequestService } from '../request.service';
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let service : RequestService;
 
   beforeEach(async () => {
+    TestBed.configureTestingModule({ providers: [RequestService] });
     await TestBed.configureTestingModule({
       declarations: [ HomeComponent ]
     })
@@ -17,6 +21,7 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    service = TestBed.inject(RequestService);
   });
 
   it('should create', () => {
